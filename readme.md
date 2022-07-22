@@ -47,3 +47,7 @@ param :
 https://gist.github.com/yokada/ffc92d84a5844008fbab14ab6aeda054
 
 https://aws.amazon.com/premiumsupport/knowledge-center/step-functions-iam-role-troubleshooting/
+
+https://states-language.net/spec.html#map-state
+
+https://docs.aws.amazon.com/zh_cn/step-functions/latest/dg/amazon-states-language-map-state.html

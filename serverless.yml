@@ -1,0 +1,54 @@
+service: demo-service
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+  stage: gamma
+
+
+package:
+  exclude:
+    - node_modules/**
+    - .serverless/**
+    - venv/**
+    - env/**
+    - __pycache__/**
+    - cf-template.yaml
+    - splittingLayer.zip
+    - docker/**
+    - assets/**
+
+
+functions:
+  dip-step-function-test-map:
+    name: ${sls:stage}-dip-step-function-test-map
+    handler: map_lambda.handle_event
+    maximumEventAge: 1000
+    maximumRetryAttempts: 0
+    memorySize: 512
+    timeout: 15
+    environment:
+      ENVIRONMENT: ${sls:stage}
+  dip-step-function-test-subtask:
+    name: ${sls:stage}-dip-step-function-test-subtask
+    handler: subtask_lambda.handle_event
+    maximumEventAge: 1000
+    maximumRetryAttempts: 0
+    memorySize: 512
+    timeout: 15
+    environment:
+      ENVIRONMENT: ${sls:stage}
+  dip-step-function-test-reduce:
+    name: ${sls:stage}-dip-step-function-test-reduce
+    handler: reduce_lambda.handle_event
+    maximumEventAge: 1000
+    maximumRetryAttempts: 0
+    memorySize: 512
+    timeout: 300
+    environment:
+      ENVIRONMENT: ${sls:stage}
+

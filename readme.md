@@ -45,3 +45,5 @@ param :
 
 
 https://gist.github.com/yokada/ffc92d84a5844008fbab14ab6aeda054
+
+https://aws.amazon.com/premiumsupport/knowledge-center/step-functions-iam-role-troubleshooting/

@@ -15,15 +15,22 @@ aws sso login && yawsso --default
 sls deploy 
 ```
 
+### create a IAM role 
+
+you can do it in AWS console 
+
+IAM role name : `gamma-stepfunction-mapreduce-test`
+
+IAM role should contain policy name `AWSLambdaVPCAccessExecutionRole`
+
+IAM Trusted entities should contain Service `states.amazonaws.com`
+
 ### deploy step function 
 
 ```
 aws stepfunctions  create-state-machine --definition "$(cat demo.asl.json)" --name "gamma-mapreduce-test" --role-arn "arn:aws:iam::<your account id>:role/gamma-stepfunction-mapreduce-test"
 ```
 
-IAM role should contain policy name `AWSLambdaVPCAccessExecutionRole`
-
-IAM Trusted entities should contain Service `states.amazonaws.com`
 
 ### run step function 
 

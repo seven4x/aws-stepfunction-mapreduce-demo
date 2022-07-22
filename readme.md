@@ -2,7 +2,7 @@
 ## getting start 
 
 ### change config 
-change all <your account id> to your real account id 
+change all `<your account id>` to your real account id 
 
 ### login AWS sso 
 ```shell
